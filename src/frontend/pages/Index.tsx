@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { ArrowRight, Utensils, Clock, Truck, Star, ChevronRight } from 'lucide-react';
-import { Button } from '@/frontend/components/ui/button';
+import { Button } from '@/components/ui/button';
 import { Layout } from '@/frontend/components/layout/Layout';
 import { MenuItemCard } from '@/frontend/components/menu/MenuItemCard';
 import { LocationCard } from '@/frontend/components/locations/LocationCard';

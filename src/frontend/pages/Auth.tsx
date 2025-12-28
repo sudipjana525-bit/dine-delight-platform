@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { Eye, EyeOff, ArrowLeft } from 'lucide-react';
-import { Button } from '@/frontend/components/ui/button';
-import { Input } from '@/frontend/components/ui/input';
-import { Label } from '@/frontend/components/ui/label';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 import { useAuth } from '@/frontend/hooks/useAuth';
 import { toast } from 'sonner';
 import { z } from 'zod';
