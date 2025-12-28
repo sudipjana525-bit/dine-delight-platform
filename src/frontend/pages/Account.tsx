@@ -1,6 +1,6 @@
 import { useNavigate } from 'react-router-dom';
 import { User, Package, MapPin, LogOut } from 'lucide-react';
-import { Button } from '@/frontend/components/ui/button';
+import { Button } from '@/components/ui/button';
 import { Layout } from '@/frontend/components/layout/Layout';
 import { useAuth } from '@/frontend/hooks/useAuth';
 import { useQuery } from '@tanstack/react-query';

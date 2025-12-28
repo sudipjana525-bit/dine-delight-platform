@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { Trash2, Plus, Minus, ShoppingBag, ArrowLeft, ArrowRight } from 'lucide-react';
-import { Button } from '@/frontend/components/ui/button';
+import { Button } from '@/components/ui/button';
 import { Layout } from '@/frontend/components/layout/Layout';
 import { useCartStore } from '@/lib/store';
 import { useAuth } from '@/frontend/hooks/useAuth';

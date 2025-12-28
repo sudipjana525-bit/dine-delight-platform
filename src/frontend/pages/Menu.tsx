@@ -4,7 +4,7 @@ import { Search } from 'lucide-react';
 import { Layout } from '@/frontend/components/layout/Layout';
 import { MenuItemCard } from '@/frontend/components/menu/MenuItemCard';
 import { CategoryFilter } from '@/frontend/components/menu/CategoryFilter';
-import { Input } from '@/frontend/components/ui/input';
+import { Input } from '@/components/ui/input';
 import { supabase } from '@/integrations/supabase/client';
 
 export default function MenuPage() {
