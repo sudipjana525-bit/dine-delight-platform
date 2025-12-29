@@ -14,8 +14,8 @@ import {
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
-import { useAuth } from '@/hooks/useAuth';
-import { useAdmin } from '@/hooks/useAdmin';
+import { useAuth } from '@/frontend/hooks/useAuth';
+import { useAdmin } from '@/frontend/hooks/useAdmin';
 import { useNavigate } from 'react-router-dom';
 
 const adminNavItems = [

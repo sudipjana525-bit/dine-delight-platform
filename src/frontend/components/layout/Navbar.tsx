@@ -3,7 +3,7 @@ import { Menu, X, ShoppingBag, User } from 'lucide-react';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { useCartStore } from '@/lib/store';
-import { useAuth } from '@/hooks/useAuth';
+import { useAuth } from '@/frontend/hooks/useAuth';
 import { cn } from '@/lib/utils';
 
 const navLinks = [
