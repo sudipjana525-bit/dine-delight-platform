@@ -1,6 +1,6 @@
 import { Navigate } from 'react-router-dom';
-import { useAdmin } from '@/hooks/useAdmin';
-import { useAuth } from '@/hooks/useAuth';
+import { useAdmin } from '@/frontend/hooks/useAdmin';
+import { useAuth } from '@/frontend/hooks/useAuth';
 import { Loader2 } from 'lucide-react';
 
 interface AdminRouteProps {
