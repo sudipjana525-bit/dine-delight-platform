@@ -8,6 +8,7 @@ import Menu from "./frontend/pages/Menu";
 import Locations from "./frontend/pages/Locations";
 import Auth from "./frontend/pages/Auth";
 import Cart from "./frontend/pages/Cart";
+import Checkout from "./frontend/pages/Checkout";
 import Account from "./frontend/pages/Account";
 import NotFound from "./frontend/pages/NotFound";
 import { AdminLayout } from "./frontend/components/admin/AdminLayout";
@@ -34,6 +35,7 @@ const App = () => (
           <Route path="/locations" element={<Locations />} />
           <Route path="/auth" element={<Auth />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/checkout" element={<Checkout />} />
           <Route path="/account" element={<Account />} />
           <Route path="/admin" element={<AdminRoute><AdminLayout /></AdminRoute>}>
             <Route index element={<AdminDashboard />} />

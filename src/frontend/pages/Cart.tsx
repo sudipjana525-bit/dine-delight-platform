@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Trash2, Plus, Minus, ShoppingBag, ArrowLeft, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Layout } from '@/frontend/components/layout/Layout';
@@ -7,6 +7,7 @@ import { useAuth } from '@/frontend/hooks/useAuth';
 import { cn } from '@/lib/utils';
 
 export default function CartPage() {
+  const navigate = useNavigate();
   const { items, removeItem, updateQuantity, getSubtotal, orderType, setOrderType, clearCart } = useCartStore();
   const { user } = useAuth();
   const subtotal = getSubtotal();
@@ -180,6 +181,7 @@ export default function CartPage() {
                 {user ? (
                   <Button 
                     className="w-full h-12 bg-gradient-hero text-primary-foreground hover:opacity-90 text-base"
+                    onClick={() => navigate('/checkout')}
                   >
                     Proceed to Checkout
                     <ArrowRight className="ml-2 h-5 w-5" />
