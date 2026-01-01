@@ -17,6 +17,7 @@ import { cn } from '@/lib/utils';
 import { useAuth } from '@/frontend/hooks/useAuth';
 import { useAdmin } from '@/frontend/hooks/useAdmin';
 import { useNavigate } from 'react-router-dom';
+import { useOrderNotifications } from '@/frontend/hooks/useOrderNotifications';
 
 const adminNavItems = [
   { href: '/admin', label: 'Dashboard', icon: LayoutDashboard },
@@ -35,7 +36,9 @@ export function AdminLayout() {
   const navigate = useNavigate();
   const { signOut } = useAuth();
   const { isAdmin } = useAdmin();
-
+  
+  // Enable real-time order notifications
+  useOrderNotifications();
   const handleSignOut = async () => {
     await signOut();
     navigate('/');
