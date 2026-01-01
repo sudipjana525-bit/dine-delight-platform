@@ -1,9 +1,10 @@
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ShoppingBag, User } from 'lucide-react';
+import { Menu, X, ShoppingBag, User, Settings } from 'lucide-react';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { useCartStore } from '@/lib/store';
 import { useAuth } from '@/frontend/hooks/useAuth';
+import { useAdmin } from '@/frontend/hooks/useAdmin';
 import { cn } from '@/lib/utils';
 
 const navLinks = [
@@ -17,6 +18,7 @@ export function Navbar() {
   const location = useLocation();
   const itemCount = useCartStore((state) => state.getItemCount());
   const { user } = useAuth();
+  const { isStaff } = useAdmin();
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border">
@@ -49,6 +51,13 @@ export function Navbar() {
 
           {/* Desktop Actions */}
           <div className="hidden md:flex items-center gap-3">
+            {isStaff && (
+              <Link to="/admin">
+                <Button variant="ghost" size="icon">
+                  <Settings className="h-5 w-5" />
+                </Button>
+              </Link>
+            )}
             <Link to="/cart">
               <Button variant="ghost" size="icon" className="relative">
                 <ShoppingBag className="h-5 w-5" />
@@ -121,6 +130,14 @@ export function Navbar() {
                 </Link>
               ))}
               <div className="pt-4 border-t border-border flex flex-col gap-3">
+                {isStaff && (
+                  <Link to="/admin" onClick={() => setIsOpen(false)}>
+                    <Button variant="outline" className="w-full">
+                      <Settings className="h-4 w-4 mr-2" />
+                      Admin Panel
+                    </Button>
+                  </Link>
+                )}
                 {user ? (
                   <Link to="/account" onClick={() => setIsOpen(false)}>
                     <Button variant="outline" className="w-full">
