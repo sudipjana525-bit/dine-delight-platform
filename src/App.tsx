@@ -20,6 +20,7 @@ import AdminBranches from "./frontend/pages/admin/Branches";
 import AdminOrders from "./frontend/pages/admin/Orders";
 import AdminPromotions from "./frontend/pages/admin/Promotions";
 import AdminUsers from "./frontend/pages/admin/Users";
+import AdminSetup from "./frontend/pages/AdminSetup";
 
 const queryClient = new QueryClient();
 
@@ -34,6 +35,7 @@ const App = () => (
           <Route path="/menu" element={<Menu />} />
           <Route path="/locations" element={<Locations />} />
           <Route path="/auth" element={<Auth />} />
+          <Route path="/admin-setup" element={<AdminSetup />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/account" element={<Account />} />
