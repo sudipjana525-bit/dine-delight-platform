@@ -21,6 +21,7 @@ import AdminOrders from "./frontend/pages/admin/Orders";
 import AdminPromotions from "./frontend/pages/admin/Promotions";
 import AdminUsers from "./frontend/pages/admin/Users";
 import AdminSetup from "./frontend/pages/AdminSetup";
+import Documentation from "./frontend/pages/Documentation";
 
 const queryClient = new QueryClient();
 
@@ -39,6 +40,7 @@ const App = () => (
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/account" element={<Account />} />
+          <Route path="/docs" element={<Documentation />} />
           <Route path="/admin" element={<AdminRoute><AdminLayout /></AdminRoute>}>
             <Route index element={<AdminDashboard />} />
             <Route path="menu-items" element={<AdminMenuItems />} />
