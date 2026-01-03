@@ -77,3 +77,6 @@ export function useDeleteMenuItem() {
     },
   });
 }
+
+// Alias for backwards compatibility
+export const useMenu = useMenuItems;
