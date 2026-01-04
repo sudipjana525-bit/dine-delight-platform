@@ -22,6 +22,13 @@ import AdminPromotions from "./frontend/pages/admin/Promotions";
 import AdminUsers from "./frontend/pages/admin/Users";
 import AdminSetup from "./frontend/pages/AdminSetup";
 import Documentation from "./frontend/pages/Documentation";
+import AdminInventory from "./frontend/pages/admin/Inventory";
+import AdminKitchenDisplay from "./frontend/pages/admin/KitchenDisplay";
+import AdminAnalytics from "./frontend/pages/admin/Analytics";
+import AdminRefunds from "./frontend/pages/admin/Refunds";
+import AdminAuditLogs from "./frontend/pages/admin/AuditLogs";
+import AdminFeatureFlags from "./frontend/pages/admin/FeatureFlags";
+import AdminReviews from "./frontend/pages/admin/Reviews";
 
 const queryClient = new QueryClient();
 
@@ -49,6 +56,13 @@ const App = () => (
             <Route path="orders" element={<AdminOrders />} />
             <Route path="promotions" element={<AdminPromotions />} />
             <Route path="users" element={<AdminRoute requiredRole="admin"><AdminUsers /></AdminRoute>} />
+            <Route path="inventory" element={<AdminInventory />} />
+            <Route path="kitchen" element={<AdminKitchenDisplay />} />
+            <Route path="analytics" element={<AdminAnalytics />} />
+            <Route path="refunds" element={<AdminRefunds />} />
+            <Route path="audit-logs" element={<AdminRoute requiredRole="admin"><AdminAuditLogs /></AdminRoute>} />
+            <Route path="feature-flags" element={<AdminRoute requiredRole="admin"><AdminFeatureFlags /></AdminRoute>} />
+            <Route path="reviews" element={<AdminReviews />} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>

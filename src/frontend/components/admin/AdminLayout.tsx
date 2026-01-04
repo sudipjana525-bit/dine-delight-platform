@@ -9,7 +9,14 @@ import {
   Users,
   ChevronLeft,
   Menu,
-  LogOut
+  LogOut,
+  Package,
+  ChefHat,
+  BarChart3,
+  RefreshCcw,
+  FileText,
+  ToggleLeft,
+  Star
 } from 'lucide-react';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
@@ -25,8 +32,15 @@ const adminNavItems = [
   { href: '/admin/categories', label: 'Categories', icon: FolderTree },
   { href: '/admin/branches', label: 'Branches', icon: MapPin },
   { href: '/admin/orders', label: 'Orders', icon: ShoppingCart },
+  { href: '/admin/kitchen', label: 'Kitchen Display', icon: ChefHat },
+  { href: '/admin/inventory', label: 'Inventory', icon: Package },
   { href: '/admin/promotions', label: 'Promotions', icon: Ticket },
+  { href: '/admin/refunds', label: 'Refunds', icon: RefreshCcw },
+  { href: '/admin/reviews', label: 'Reviews', icon: Star },
+  { href: '/admin/analytics', label: 'Analytics', icon: BarChart3 },
   { href: '/admin/users', label: 'Users', icon: Users, adminOnly: true },
+  { href: '/admin/audit-logs', label: 'Audit Logs', icon: FileText, adminOnly: true },
+  { href: '/admin/feature-flags', label: 'Feature Flags', icon: ToggleLeft, adminOnly: true },
 ];
 
 export function AdminLayout() {
