@@ -16,7 +16,8 @@ import {
   RefreshCcw,
   FileText,
   ToggleLeft,
-  Star
+  Star,
+  Activity
 } from 'lucide-react';
 import { useState } from 'react';
 import { Button } from '@/components/ui/button';
@@ -41,6 +42,7 @@ const adminNavItems = [
   { href: '/admin/users', label: 'Users', icon: Users, adminOnly: true },
   { href: '/admin/audit-logs', label: 'Audit Logs', icon: FileText, adminOnly: true },
   { href: '/admin/feature-flags', label: 'Feature Flags', icon: ToggleLeft, adminOnly: true },
+  { href: '/admin/system-health', label: 'System Health', icon: Activity, adminOnly: true },
 ];
 
 export function AdminLayout() {

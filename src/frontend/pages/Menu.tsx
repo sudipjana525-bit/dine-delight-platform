@@ -4,12 +4,14 @@ import { Search } from 'lucide-react';
 import { Layout } from '@/frontend/components/layout/Layout';
 import { MenuItemCard } from '@/frontend/components/menu/MenuItemCard';
 import { CategoryFilter } from '@/frontend/components/menu/CategoryFilter';
+import { DietaryFilters } from '@/frontend/components/menu/DietaryFilters';
 import { Input } from '@/components/ui/input';
 import { supabase } from '@/integrations/supabase/client';
 
 export default function MenuPage() {
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState('');
+  const [dietaryFilters, setDietaryFilters] = useState<string[]>([]);
 
   const { data: categories } = useQuery({
     queryKey: ['categories'],
@@ -25,7 +27,7 @@ export default function MenuPage() {
   });
 
   const { data: menuItems, isLoading } = useQuery({
-    queryKey: ['menu-items', selectedCategory, searchQuery],
+    queryKey: ['menu-items', selectedCategory, searchQuery, dietaryFilters],
     queryFn: async () => {
       let query = supabase
         .from('menu_items')
@@ -42,6 +44,16 @@ export default function MenuPage() {
 
       const { data, error } = await query.order('is_featured', { ascending: false });
       if (error) throw error;
+      
+      // Filter by dietary tags client-side
+      if (dietaryFilters.length > 0) {
+        return data?.filter(item => 
+          dietaryFilters.every(filter => 
+            item.dietary_tags?.some((tag: string) => tag.toLowerCase() === filter.toLowerCase())
+          )
+        );
+      }
+      
       return data;
     },
   });
@@ -63,7 +75,7 @@ export default function MenuPage() {
 
       {/* Filters */}
       <section className="sticky top-16 md:top-20 z-40 bg-background/95 backdrop-blur-lg border-b border-border py-4">
-        <div className="container mx-auto">
+        <div className="container mx-auto space-y-4">
           <div className="flex flex-col md:flex-row gap-4 items-start md:items-center justify-between">
             {/* Category Filter */}
             <div className="w-full md:w-auto overflow-x-auto">
@@ -85,6 +97,12 @@ export default function MenuPage() {
               />
             </div>
           </div>
+
+          {/* Dietary Filters */}
+          <DietaryFilters
+            selectedFilters={dietaryFilters}
+            onFilterChange={setDietaryFilters}
+          />
         </div>
       </section>
 

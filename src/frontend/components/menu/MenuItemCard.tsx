@@ -5,6 +5,7 @@ import { useCartStore } from '@/lib/store';
 import { toast } from 'sonner';
 import { cn } from '@/lib/utils';
 import { Clock, Flame } from 'lucide-react';
+import { FavoriteButton } from './FavoriteButton';
 
 interface MenuItemCardProps {
   id: string;
@@ -87,6 +88,12 @@ export function MenuItemCard({
             </Badge>
           </div>
         )}
+
+        {/* Favorite Button */}
+        <FavoriteButton 
+          menuItemId={id} 
+          className="absolute top-3 right-3"
+        />
 
         {/* Unavailable Overlay */}
         {!isAvailable && (
