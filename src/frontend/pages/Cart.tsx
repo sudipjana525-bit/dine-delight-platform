@@ -2,6 +2,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { Trash2, Plus, Minus, ShoppingBag, ArrowLeft, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Layout } from '@/frontend/components/layout/Layout';
+import { ScheduledOrderForm } from '@/frontend/components/orders/ScheduledOrderForm';
 import { useCartStore } from '@/lib/store';
 import { useAuth } from '@/frontend/hooks/useAuth';
 import { cn } from '@/lib/utils';
@@ -179,13 +180,16 @@ export default function CartPage() {
                 )}
 
                 {user ? (
-                  <Button 
-                    className="w-full h-12 bg-gradient-hero text-primary-foreground hover:opacity-90 text-base"
-                    onClick={() => navigate('/checkout')}
-                  >
-                    Proceed to Checkout
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </Button>
+                  <div className="space-y-3">
+                    <Button 
+                      className="w-full h-12 bg-gradient-hero text-primary-foreground hover:opacity-90 text-base"
+                      onClick={() => navigate('/checkout')}
+                    >
+                      Proceed to Checkout
+                      <ArrowRight className="ml-2 h-5 w-5" />
+                    </Button>
+                    <ScheduledOrderForm />
+                  </div>
                 ) : (
                   <div className="space-y-3">
                     <Link to="/auth" className="block">

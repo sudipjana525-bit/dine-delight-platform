@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { User, Package, MapPin, LogOut, Save, Loader2, ArrowLeft, Edit2 } from 'lucide-react';
+import { User, Package, MapPin, LogOut, Save, Loader2, ArrowLeft, Edit2, Award } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Layout } from '@/frontend/components/layout/Layout';
+import { LoyaltyDashboard } from '@/frontend/components/account/LoyaltyDashboard';
 import { useAuth } from '@/frontend/hooks/useAuth';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import { supabase } from '@/integrations/supabase/client';
@@ -245,13 +247,26 @@ export default function AccountPage() {
               </div>
             </div>
 
-            {/* Order History */}
+            {/* Right Column - Tabs for Orders & Loyalty */}
             <div className="md:col-span-2">
-              <div className="bg-card rounded-xl p-6 shadow-soft">
-                <div className="flex items-center gap-3 mb-6">
-                  <Package className="h-6 w-6 text-primary" />
-                  <h2 className="font-display text-xl font-semibold">Order History</h2>
-                </div>
+              <Tabs defaultValue="orders" className="w-full">
+                <TabsList className="w-full mb-4">
+                  <TabsTrigger value="orders" className="flex-1">
+                    <Package className="h-4 w-4 mr-2" />
+                    Order History
+                  </TabsTrigger>
+                  <TabsTrigger value="loyalty" className="flex-1">
+                    <Award className="h-4 w-4 mr-2" />
+                    Loyalty Points
+                  </TabsTrigger>
+                </TabsList>
+
+                <TabsContent value="orders">
+                  <div className="bg-card rounded-xl p-6 shadow-soft">
+                    <div className="flex items-center gap-3 mb-6">
+                      <Package className="h-6 w-6 text-primary" />
+                      <h2 className="font-display text-xl font-semibold">Order History</h2>
+                    </div>
 
                 {orders && orders.length > 0 ? (
                   <div className="space-y-4">
@@ -319,7 +334,15 @@ export default function AccountPage() {
                     </Button>
                   </div>
                 )}
-              </div>
+                  </div>
+                </TabsContent>
+
+                <TabsContent value="loyalty">
+                  <div className="bg-card rounded-xl p-6 shadow-soft">
+                    <LoyaltyDashboard />
+                  </div>
+                </TabsContent>
+              </Tabs>
             </div>
           </div>
         </div>

@@ -29,7 +29,7 @@ import AdminRefunds from "./frontend/pages/admin/Refunds";
 import AdminAuditLogs from "./frontend/pages/admin/AuditLogs";
 import AdminFeatureFlags from "./frontend/pages/admin/FeatureFlags";
 import AdminReviews from "./frontend/pages/admin/Reviews";
-
+import AdminSystemHealth from "./frontend/pages/admin/SystemHealth";
 const queryClient = new QueryClient();
 
 const App = () => (
@@ -63,6 +63,7 @@ const App = () => (
             <Route path="audit-logs" element={<AdminRoute requiredRole="admin"><AdminAuditLogs /></AdminRoute>} />
             <Route path="feature-flags" element={<AdminRoute requiredRole="admin"><AdminFeatureFlags /></AdminRoute>} />
             <Route path="reviews" element={<AdminReviews />} />
+            <Route path="system-health" element={<AdminRoute requiredRole="admin"><AdminSystemHealth /></AdminRoute>} />
           </Route>
           <Route path="*" element={<NotFound />} />
         </Routes>
