@@ -298,7 +298,7 @@ export default function Index() {
               </Button>
             </Link>
             <Link to="/auth">
-              <Button size="lg" variant="outline" className="text-base px-10 h-14 border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10">
+              <Button size="lg" variant="outline" className="text-base px-10 h-14 border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10">
                 Join Rewards
               </Button>
             </Link>
